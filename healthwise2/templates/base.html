@@ -1,0 +1,28 @@
+<html>
+    <head>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        {% load static %}
+        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        {% block head %}    
+        {% endblock %}
+
+        <title>
+            {% block title %}Healthwise{% endblock %}
+        </title>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+            {% include 'navbar.html' %}
+        {% endif %}
+
+        {% include 'messages.html' %}
+
+        {% block content %}
+        {% endblock %}     
+    </body>
+</html>

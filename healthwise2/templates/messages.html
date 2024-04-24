@@ -1,0 +1,9 @@
+{% if messages %}
+    {% for message in messages %}
+        <div class="coontainer d-flex justify-content-center mt-5">
+            <div class="alert alert-primary " role="alert">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

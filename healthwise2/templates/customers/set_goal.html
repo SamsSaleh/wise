@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Set Goal{% endblock %}
+
+{% block content %}
+<div class="container mt-5 bg-success bg-gradient text-white">
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-sm mb-2 mt-2">Back</a>
+
+    <h1 class="text-center m-3">Set Goal</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary mt-5 mb-2">Set</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% include 'customers/warning_modal.html' %}
+
+{% endblock %}

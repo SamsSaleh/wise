@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container" >
+    <div class="card text-center m-5">
+        <div class="card-header">
+            <small class="text12">{{ user.username }}'s Profile</small>
+        </div>
+        <img src="{% static 'images/customer.svg'%}" class="profile-image" alt="">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="validationDefault01" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationDefault01" value="{{ user.first_name }}" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault02" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationDefault02" value="{{ user.last_name }}" disabled>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefaultUsername" class="form-label">Username</label>
+                    <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" value="{{ user.username }}" disabled>
+                </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault03" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="validationDefault03" value="{{ user.email }}" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault04" class="form-label">Date Joined</label>
+                    <input type="text" class="form-control" id="validationDefault04" value="{{ user.date_joined }}" disabled>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault05" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="validationDefault05" value="{{ user.role }}" disabled>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <a href="{% url 'change_password' %}" class="btn btn-primary">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
